@@ -28,7 +28,6 @@ export class Authservice {
                 return userAccount;
             }
         }catch(e){
-            throw e;
             console.log("Appwrite Error :: Auth : Create Service");
         }
     }
@@ -36,18 +35,17 @@ export class Authservice {
 
     async login({email , password}){
         try {
-            await this.account.createEmailPasswordSession({email , password})
+            return await this.account.createEmailPasswordSession({email , password})
         } catch (error) {
-            throw error;
             console.log("Appwrite Error :: Auth : Login Service");
+            return false;
         }
     }
 
-    async getCuurentUser(){
+    async getCurrentUser(){
         try {
             return await this.account.get();
         } catch (error) {
-            throw error;
             console.log("Appwrite Error :: Auth : Currect Service");
         }
         return null;
@@ -57,8 +55,8 @@ export class Authservice {
         try {
             return await this.account.deleteSessions();
         } catch (error) {
-            throw error;
             console.log("Appwrite Error :: Auth : Logout Service");
+            return false;
         }
     }
 }
