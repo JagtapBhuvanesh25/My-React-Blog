@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import authservice from "./Appwrite/auth";
+import { Authservice } from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
 import { Header, Footer } from "./components/index";
 import { Outlet } from "react-router-dom";
@@ -10,7 +10,7 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		authservice.getCurrentUser()
+		Authservice.getCurrentUser()
 		.then(user => {
 			if(user) dispatch(login(user));
 			else dispatch(logout());
