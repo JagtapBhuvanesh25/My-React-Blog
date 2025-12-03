@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Authservice } from "./appwrite/auth";
+import Authservice from './Appwrite/auth'
 import { login, logout } from "./store/authSlice";
 import { Header, Footer } from "./components/index";
 import { Outlet } from "react-router-dom";
@@ -28,7 +28,7 @@ function App() {
 		<>
 		<Header />
 			<main>
-				TODO {/* <Outlet /> */}
+				TODO <Outlet />
 			</main>
 		<Footer />
 		</>
