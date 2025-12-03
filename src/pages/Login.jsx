@@ -1,12 +1,11 @@
-import {Login as LoginComponent} from "../components/index";
-
+import components from "../components/index";
 
 function Login() {
   return (
     <div className='py-8'>
-        <LoginComponent />
+        <components.Login />
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

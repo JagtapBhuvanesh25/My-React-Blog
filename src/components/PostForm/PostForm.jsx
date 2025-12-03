@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Input, RTE, Select } from "../index";
+import RTE from '../RTE'
+import Select from '../Select'
+import Button from '../Button'
+import Input from "../Input"
 import appwriteService from '../../Appwrite/config'
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -39,7 +42,7 @@ export default function PostForm({ post }) {
 	}
 
 	const slugTranform = useCallback((value) => {
-		if(value && typeof(value) === 'string') return value.trim().toLocaleLowerCase().replace(/\s/g , '-')
+		if(value && typeof(value) === 'string') return value.toLocaleLowerCase().replace(/\s/g , '-')
 		return ''
 	} , [])
 

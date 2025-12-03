@@ -1,22 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
-import { 
-  createBrowserRouter, 
-  RouterProvider 
+import {
+  createBrowserRouter,
+  RouterProvider
 } from 'react-router-dom'
 
 import store from './store/store.js'
 import App from './App.jsx'
-import {
-    Signup,
-    Login,
-    Home,
-    AllPosts,
-    AddPost,
-    EditPost,
-    Post
-} from './pages/index.js'
+import pages from './pages/index.js'   // <-- fixed import
 import AuthLayout from './components/AuthLayout.jsx'
 
 const router = createBrowserRouter([
@@ -24,13 +16,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <Home /> },
+      { path: "/", element: <pages.Home /> },
 
       {
         path: "/login",
         element: (
           <AuthLayout authentication={false}>
-            <Login />
+            <pages.Login />
           </AuthLayout>
         ),
       },
@@ -39,7 +31,7 @@ const router = createBrowserRouter([
         path: "/signup",
         element: (
           <AuthLayout authentication={false}>
-            <Signup />
+            <pages.Signup />
           </AuthLayout>
         ),
       },
@@ -48,7 +40,7 @@ const router = createBrowserRouter([
         path: "/all-posts",
         element: (
           <AuthLayout authentication>
-            <AllPosts />
+            <pages.AllPosts />
           </AuthLayout>
         ),
       },
@@ -57,7 +49,7 @@ const router = createBrowserRouter([
         path: "/add-post",
         element: (
           <AuthLayout authentication>
-            <AddPost />
+            <pages.AddPost />
           </AuthLayout>
         ),
       },
@@ -66,14 +58,14 @@ const router = createBrowserRouter([
         path: "/edit-post/:slug",
         element: (
           <AuthLayout authentication>
-            <EditPost />
+            <pages.EditPost />
           </AuthLayout>
         ),
       },
 
       {
         path: "/post/:slug",
-        element: <Post />,
+        element: <pages.Post />,
       },
     ],
   },
