@@ -30,53 +30,77 @@ function LoginP() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
-      <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
-        <div className="mb-2 flex justify-center">
+    <div className="min-h-[60vh] flex items-center justify-center w-full px-4">
+      <div className="mx-auto w-full max-w-md bg-gray-700 text-gray-200 rounded-xl p-8 border border-gray-700 shadow-md">
+        <div className="mb-4 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
             <Logo width="100%" />
           </span>
         </div>
 
-        <h2 className="text-center text-2xl font-bold leading-tight">Sign in to your account</h2>
-        <p className="mt-2 text-center text-base text-black/60">
-          Don&apos;t have any account?&nbsp;
-          <Link to="/signup" className="font-medium text-primary transition-all duration-200 hover:underline">
+        <h2 className="text-center text-2xl font-semibold leading-tight">
+          Sign in to your account
+        </h2>
+
+        <p className="mt-2 text-center text-sm text-gray-400">
+          Don&apos;t have an account?{" "}
+          <Link
+            to="/signup"
+            className="font-medium text-blue-400 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
+          >
             Sign Up
           </Link>
         </p>
 
-        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+        {/* auth error */}
+        {error && (
+          <p
+            className="text-red-400 mt-6 text-center text-sm"
+            role="alert"
+            aria-live="polite"
+          >
+            {error}
+          </p>
+        )}
 
-        <form onSubmit={handleSubmit(login)} className="mt-8">
-          <div className="space-y-5">
+        <form onSubmit={handleSubmit(login)} className="mt-6">
+          <div className="space-y-4">
             <Input
-              label="Email: "
-              placeholder="Enter Your Email"
+              label="Email"
+              placeholder="Enter your email"
               type="email"
               {...register("email", {
                 required: true,
                 validate: {
                   matchPatern: (value) =>
-                    /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) || "Email Address Must Be A Valid Address",
+                    /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/.test(value) ||
+                    "Email Address Must Be A Valid Address",
                 },
               })}
             />
 
             <Input
-              label="Password: "
+              label="Password"
               type="password"
-              placeholder="Enter Your Password"
+              placeholder="Enter your password"
               {...register("password", {
                 required: true,
               })}
             />
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full bg-blue-600 text-white">
               Login
             </Button>
           </div>
         </form>
+
+        <div className="mt-6 text-center text-xs text-gray-500">
+          By signing in you agree to our{" "}
+          <Link to="/" className="underline hover:text-gray-300">
+            Terms
+          </Link>
+          .
+        </div>
       </div>
     </div>
   );

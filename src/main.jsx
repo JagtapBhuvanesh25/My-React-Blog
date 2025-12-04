@@ -1,22 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { Provider } from 'react-redux'
-import {
-  createBrowserRouter,
-  RouterProvider
-} from 'react-router-dom'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import store from './store/store.js'
-import App from './App.jsx'
-import Home from './pages/Home.jsx'
-import Post from './pages/Post.jsx'
-import Login from './pages/Login.jsx'
-import Signup from './pages/Signup.jsx'
-import AddPost from './pages/AddPost.jsx'
-import AllPosts from './pages/AllPosts.jsx'
-import EditPost from './pages/EditPost.jsx'
-import AuthLayout from './components/AuthLayout.jsx'
+import store from "./store/store.js";
+import App from "./App.jsx";
+import Home from "./pages/Home.jsx";
+import Post from "./pages/Post.jsx";
+import Login from "./pages/Login.jsx";
+import Signup from "./pages/Signup.jsx";
+import AddPost from "./pages/AddPost.jsx";
+import AllPosts from "./pages/AllPosts.jsx";
+import EditPost from "./pages/EditPost.jsx";
+import AuthLayout from "./components/AuthLayout.jsx";
 
+/**
+ * Router config (no logic changes)
+ * Routes are nested under App which provides the Header/Footer layout.
+ */
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,18 +69,16 @@ const router = createBrowserRouter([
           </AuthLayout>
         ),
       },
-      {
-          path: "/post/:slug",
-          element: <Post />,
-      },
+
+      { path: "/post/:slug", element: <Post /> },
     ],
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
   </StrictMode>
-)
+);
