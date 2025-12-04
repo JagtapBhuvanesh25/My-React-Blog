@@ -1,16 +1,41 @@
-# React + Vite
+# React Blog App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple blogging application built using React, Redux Toolkit, React Router, and Appwrite.
 
-Currently, two official plugins are available:
+## Features
+- User authentication (signup / login / logout)
+- Create, edit, delete posts
+- Appwrite database + storage integration
+- React Router based navigation
+- Dark mode friendly UI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React
+- Vite
+- Redux Toolkit
+- React Router
+- TailwindCSS
+- Appwrite (Auth, DB, Storage)
 
-## React Compiler
+## Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Install dependencies:
+- npm install
+### Start development server:
+- npm run dev
 
-## Expanding the ESLint configuration
+## Environment Variables
+Create a `.env` file:
+- VITE_APPWRITE_ENDPOINT=
+- VITE_APPWRITE_PROJECT_ID=
+- VITE_APPWRITE_DATABASE_ID=
+- VITE_APPWRITE_COLLECTION_ID=
+- VITE_APPWRITE_BUCKET_ID=
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Build
+- npm run build
+
+
+## License
+MIT
