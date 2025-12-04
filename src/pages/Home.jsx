@@ -18,7 +18,6 @@ function Home() {
     });
   }, []);
 
-  // ---------- CASE 1: LOADING ----------
   if (authStatus && loading) {
     return (
       <div className="min-h-screen bg-gray-600 flex items-center justify-center py-16">
@@ -30,7 +29,6 @@ function Home() {
     );
   }
 
-  // ---------- CASE 2: NOT LOGGED IN ----------
   if (!authStatus) {
     return (
       <div className="min-h-screen bg-gray-600 flex items-center py-16">
@@ -46,7 +44,6 @@ function Home() {
     );
   }
 
-  // ---------- CASE 3: LOGGED IN & NO POSTS ----------
   if (!loading && posts.length === 0) {
     return (
       <div className="min-h-screen bg-gray-600 flex items-center py-16">
@@ -62,7 +59,6 @@ function Home() {
     );
   }
 
-  // ---------- CASE 4: SHOW POSTS ----------
   return (
     <div className="min-h-screen bg-gray-600 py-14">
       <Container>

@@ -52,7 +52,6 @@ function LoginP() {
           </Link>
         </p>
 
-        {/* auth error */}
         {error && (
           <p
             className="text-red-400 mt-6 text-center text-sm"

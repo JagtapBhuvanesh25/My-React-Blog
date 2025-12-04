@@ -13,7 +13,6 @@ export class Authservice {
   async createAccount({ email, password, name }) {
     try {
       const userAccount = await this.account.create(ID.unique(), email, password, name);
-
       if (userAccount) {
         return this.login({ email, password });
       } else {
@@ -54,5 +53,4 @@ export class Authservice {
 }
 
 const authservice = new Authservice();
-
 export default authservice;

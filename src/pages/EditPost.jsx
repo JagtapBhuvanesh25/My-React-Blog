@@ -21,7 +21,6 @@ function EditPost() {
     }
   }, [slug, navigate]);
 
-  // Show a tasteful loading state while the post is fetched
   if (!post) {
     return (
       <div className="min-h-screen bg-gray-600 flex items-center justify-center py-10">

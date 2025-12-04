@@ -1,4 +1,3 @@
-// Button.jsx
 function Button({
   children,
   type = 'button',

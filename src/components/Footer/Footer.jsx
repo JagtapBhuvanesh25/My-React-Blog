@@ -10,7 +10,6 @@ function Footer() {
     >
       <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-12 items-center">
-          {/* Brand */}
           <div className="md:col-span-5">
             <div className="flex flex-col gap-2">
               <div className="inline-flex items-center">
@@ -28,7 +27,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* Links columns */}
           <div className="md:col-span-7">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <nav aria-label="Company links" className="space-y-2">

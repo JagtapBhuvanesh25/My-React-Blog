@@ -21,7 +21,6 @@ function Header() {
   ];
 
   const isActive = (slug) => {
-    // simple visual active detection — non-destructive to existing logic
     return location.pathname === slug;
   };
 
@@ -35,14 +34,12 @@ function Header() {
     >
       <Container>
         <div className="flex items-center justify-between gap-4 py-3">
-          {/* left: brand */}
           <div className="flex items-center gap-3">
             <Link to="/" aria-label="Home" onClick={() => setOpen(false)}>
               <Logo width="70px" />
             </Link>
           </div>
 
-          {/* center / desktop nav */}
           <nav
             className="hidden md:flex items-center gap-3 ml-6"
             aria-label="Primary navigation"
@@ -74,14 +71,11 @@ function Header() {
             </ul>
           </nav>
 
-          {/* right: actions */}
           <div className="flex items-center gap-2">
-            {/* logout (desktop) */}
             <div className="hidden md:block">
               {authStatus && <LogoutBtn />}
             </div>
 
-            {/* mobile: menu toggle */}
             <button
               type="button"
               aria-expanded={open}
@@ -100,13 +94,11 @@ function Header() {
                 aria-hidden="true"
               >
                 {open ? (
-                  // X icon
                   <>
                     <line x1="18" y1="6" x2="6" y2="18" />
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </>
                 ) : (
-                  // hamburger
                   <>
                     <line x1="3" y1="12" x2="21" y2="12" />
                     <line x1="3" y1="6" x2="21" y2="6" />
@@ -118,7 +110,6 @@ function Header() {
           </div>
         </div>
 
-        {/* Mobile menu (slides down) */}
         <div
           className={`md:hidden overflow-hidden transition-[max-height] duration-200 ${
             open ? "max-h-[500px] pb-4" : "max-h-0"
@@ -151,7 +142,6 @@ function Header() {
               )}
             </ul>
 
-            {/* mobile logout shown inline */}
             {authStatus && (
               <div className="px-4">
                 <LogoutBtn />

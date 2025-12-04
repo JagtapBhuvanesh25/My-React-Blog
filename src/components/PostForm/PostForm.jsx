@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import RTE from "../RTE";
 import Select from "../Select";
@@ -20,6 +20,8 @@ export default function PostForm({ post }) {
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth?.userData);
+  const [preview, setPreview] = useState(null);
+  const fallback = "https://via.placeholder.com/800x400?text=No+Image";
 
   const submit = async (data) => {
     const fileToUpload = data?.image?.[0] ?? null;
@@ -66,10 +68,33 @@ export default function PostForm({ post }) {
     };
   }, [watch, slugTranform, setValue]);
 
+  useEffect(() => {
+    let mounted = true;
+    if (!post) {
+      setPreview(null);
+      return;
+    }
+    const fileId =
+      post.featuredImage ||
+      post.featured_image ||
+      post.image ||
+      post.coverImage ||
+      post.cover_image ||
+      null;
+    if (!fileId) {
+      setPreview(null);
+      return;
+    }
+    const url = appwriteService.getFileViewUrl(fileId);
+    if (mounted) setPreview(url);
+    return () => {
+      mounted = false;
+    };
+  }, [post]);
+
   return (
     <form onSubmit={handleSubmit(submit)} className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Left: main content */}
         <div className="md:col-span-2">
           <div className="space-y-4">
             <Input
@@ -95,7 +120,6 @@ export default function PostForm({ post }) {
           </div>
         </div>
 
-        {/* Right: sidebar */}
         <aside className="md:col-span-1 space-y-4">
           <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-200">Featured Image</label>
@@ -109,10 +133,10 @@ export default function PostForm({ post }) {
               />
             </div>
 
-            {post && post.featuredImage && (
+            {post && (
               <div className="w-full mt-2">
                 <img
-                  src={appwriteService.getFilePrev(post.featuredImage)}
+                  src={preview || fallback}
                   alt={post.title}
                   className="w-full h-40 object-cover rounded-lg border border-gray-700"
                 />

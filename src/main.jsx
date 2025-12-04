@@ -14,10 +14,6 @@ import AllPosts from "./pages/AllPosts.jsx";
 import EditPost from "./pages/EditPost.jsx";
 import AuthLayout from "./components/AuthLayout.jsx";
 
-/**
- * Router config (no logic changes)
- * Routes are nested under App which provides the Header/Footer layout.
- */
 const router = createBrowserRouter([
   {
     path: "/",
