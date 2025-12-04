@@ -1,4 +1,3 @@
-import React from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 
@@ -13,6 +12,7 @@ function RTE({ name, control, label, defaultValue = "" }) {
         defaultValue={defaultValue}
         render={({ field }) => (
           <Editor
+            apiKey="bl2b5pptgd5evcq8tb2kj09nlc98kkiuqu4mbpszhvk5p06m"
             value={field.value ?? defaultValue}
             init={{
               height: 500,
@@ -34,11 +34,15 @@ function RTE({ name, control, label, defaultValue = "" }) {
                 "media",
                 "table",
                 "help",
-                "wordcount"
+                "wordcount",
               ],
               toolbar:
                 "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help",
-              content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
+              content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+              mergetags_list: [
+                { value: "First.Name", title: "First Name" },
+                { value: "Email", title: "Email" },
+              ],
             }}
             onEditorChange={field.onChange}
           />

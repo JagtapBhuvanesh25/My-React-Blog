@@ -1,5 +1,5 @@
 import React from 'react'
-import appWriteService from '../Appwrite/config'
+import appwriteService from '../Appwrite/config'
 import { Link } from 'react-router-dom'
 
 function PostCard({ $id, title, featuredImage }) {
@@ -9,7 +9,7 @@ function PostCard({ $id, title, featuredImage }) {
         <div className='w-full mb-4 justify-center'>
           {featuredImage && (
             <img
-              src={appWriteService.getFilePre(featuredImage)}
+              src={appwriteService.getFilePrev(featuredImage)}
               alt={title}
               className='rounded-xl'
             />
