@@ -9,7 +9,7 @@ import Logo from "./Logo";
 import Authservice from "../Appwrite/auth";
 import { login as authLogin } from "../store/authSlice";
 
-function Login() {
+function LoginP() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -82,4 +82,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginP;

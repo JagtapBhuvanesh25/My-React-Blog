@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import components from '../components'
+import { useState, useEffect } from 'react'
+import Container from '../components/Container/Container'
+import PostCard from '../components/PostCard'
 import appwriteService from '../Appwrite/config'
 
 function AllPosts() {
@@ -13,15 +14,15 @@ function AllPosts() {
 
   return (
     <div className='w-full py-8'>
-      <components.Container>
+      <Container>
         <div className='flex flex-wrap'>
           {posts.map((post) => (
             <div key={post.$id} className='p-2 w-1/4'>
-              <components.PostCard {...post} />
+              <PostCard {...post} />
             </div>
           ))}
         </div>
-      </components.Container>
+      </Container>
     </div>
   )
 }

@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import authService from "./Appwrite/auth";
 import { login, logout } from "./store/authSlice";
-import components from "./components";
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import { Outlet } from "react-router-dom";
 
 function App() {
@@ -28,11 +29,11 @@ function App() {
 
   return (
     <>
-      <components.Header />
+      <Header />
       <main>
         <Outlet />
       </main>
-      <components.Footer />
+      <Footer />
     </>
   );
 }

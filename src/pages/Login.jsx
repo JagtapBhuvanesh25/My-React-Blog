@@ -1,9 +1,9 @@
-import components from "../components/index";
+import LoginP from "../components/Login";
 
 function Login() {
   return (
     <div className='py-8'>
-        <components.Login />
+        <LoginP/>
     </div>
   );
 }

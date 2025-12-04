@@ -1,11 +1,11 @@
-import components from "../components/index";
-
+import Container from '../components/Container/Container'
+import PostForm from '../components/PostForm/PostForm'
 function AddPost() {
   return (
     <div className="py-8">
-      <components.Container>
-        <components.PostForm />
-      </components.Container>
+      <Container>
+        <PostForm />
+      </Container>
     </div>
   );
 }

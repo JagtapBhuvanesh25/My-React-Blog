@@ -8,7 +8,13 @@ import {
 
 import store from './store/store.js'
 import App from './App.jsx'
-import pages from './pages/index.js'   // <-- fixed import
+import Home from './pages/Home.jsx'
+import Post from './pages/Post.jsx'
+import Login from './pages/Login.jsx'
+import Signup from './pages/Signup.jsx'
+import AddPost from './pages/AddPost.jsx'
+import AllPosts from './pages/AllPosts.jsx'
+import EditPost from './pages/EditPost.jsx'
 import AuthLayout from './components/AuthLayout.jsx'
 
 const router = createBrowserRouter([
@@ -16,13 +22,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <pages.Home /> },
+      { path: "/", element: <Home /> },
 
       {
         path: "/login",
         element: (
           <AuthLayout authentication={false}>
-            <pages.Login />
+            <Login />
           </AuthLayout>
         ),
       },
@@ -31,7 +37,7 @@ const router = createBrowserRouter([
         path: "/signup",
         element: (
           <AuthLayout authentication={false}>
-            <pages.Signup />
+            <Signup />
           </AuthLayout>
         ),
       },
@@ -40,7 +46,7 @@ const router = createBrowserRouter([
         path: "/all-posts",
         element: (
           <AuthLayout authentication>
-            <pages.AllPosts />
+            <AllPosts />
           </AuthLayout>
         ),
       },
@@ -49,7 +55,7 @@ const router = createBrowserRouter([
         path: "/add-post",
         element: (
           <AuthLayout authentication>
-            <pages.AddPost />
+            <AddPost />
           </AuthLayout>
         ),
       },
@@ -58,14 +64,13 @@ const router = createBrowserRouter([
         path: "/edit-post/:slug",
         element: (
           <AuthLayout authentication>
-            <pages.EditPost />
+            <EditPost />
           </AuthLayout>
         ),
       },
-
       {
-        path: "/post/:slug",
-        element: <pages.Post />,
+          path: "/post/:slug",
+          element: <Post />,
       },
     ],
   },
