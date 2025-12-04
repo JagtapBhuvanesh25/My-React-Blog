@@ -37,10 +37,7 @@ function App() {
         className="min-h-screen bg-gray-600"
         style={{ "--header-h": "5rem", "--footer-h": "4rem" }}
       >
-        <main
-          style={{ height: "calc(100vh - var(--header-h) - var(--footer-h))" }}
-          className="pt-20 pb-16 overflow-auto"
-        >
+        <main>
           <Outlet />
         </main>
       </div>
