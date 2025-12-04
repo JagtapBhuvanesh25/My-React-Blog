@@ -4,7 +4,7 @@ import Logo from "../Logo";
 function Footer() {
   return (
     <footer
-      className="fixed bottom-0 left-0 w-full z-40 bg-gray-900 text-gray-200 border-t border-gray-700"
+      className="bottom-0 left-0 w-full z-40 bg-gray-900 text-gray-200 border-t border-gray-700"
       role="contentinfo"
       aria-label="Site footer"
     >
